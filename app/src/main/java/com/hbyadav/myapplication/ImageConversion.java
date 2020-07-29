@@ -23,12 +23,4 @@ public class ImageConversion { // class to convert image to and from bitmap/BLOB
     public static Bitmap getImage(byte[] image) {
         return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
-
-    public static byte[] defaultProfile(Context context) throws IOException { // get default profile
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();     // picture byte array to see if user has changed it
-        Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.profile);
-        bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream);
-        stream.close();
-        return stream.toByteArray();
-    }
 }

@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,14 +88,6 @@ public class Home_fragment extends Fragment {
             ImageView profileImage = (ImageView) view.findViewById(R.id.profilePic);
             Bitmap profileBit = ImageConversion.getImage(profileArr);
             profileImage.setImageBitmap(profileBit);
-            try {                                        // if profile image is default, add tint
-                if(Arrays.equals(profileArr,ImageConversion.defaultProfile(getActivity()))) {
-                    profileImage.setColorFilter(R.color.colorPrimary, PorterDuff.Mode.SRC_ATOP);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
         }
         return view;
     }
